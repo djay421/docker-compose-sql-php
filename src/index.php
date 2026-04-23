@@ -11,7 +11,10 @@
 <body>
 
   <?php
-  echo "leeg";
+  $x = "int";
+
+  echo $x = 67;
+
   ?>
 
 </body>
