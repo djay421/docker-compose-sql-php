@@ -1,10 +1,10 @@
 <?php
 $servername = "mysql";
-$username = ini_get(option: 'mysqli.default_user'); //from php.ini
-$password = ini_get(option: "mysqli.default_pw"); //from php.ini
+$username = "root"; //from php.ini
+$password = "password"; //from php.ini
 
 try {
-    $conn = new mysqli($servername, $username, $password, "games");
+    $conn = new mysqli($servername, $username, $password, "users");
     if ($conn->connect_error) {
         error_log($conn->connect_error);
         exit("Connection DB failed");

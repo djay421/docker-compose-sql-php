@@ -18,8 +18,10 @@ services:
     volumes:
       #- mysqldata:/var/lib/mysql
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+       - ./init_planten.sql:/docker-entrypoint-initdb.d/init_planten.sql
       - certs:/ssl
       - mysqlconf:/etc/mysql/conf.d/
+      - ./planten_met_afbeeldingen.csv:/var/lib/mysql-files/planten.csv
     ports:
       - 3306:3306
 
@@ -34,3 +36,4 @@ volumes:
   mysqldata:
   certs:
   mysqlconf:
+ 
