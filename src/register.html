@@ -3,71 +3,128 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Create Account — Vault</title>
+  <title>Create Account — Cosmos Observatory</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Mono:wght@400;500&family=DM+Sans:wght@300;400;500&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@300;400;500;600;700&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Syne:wght@400;500;600;700;800&display=swap">
   <link rel="stylesheet" href="css/style.css">
 </head>
-<body class="auth-page">
+<body>
+  <div class="nebula-bg"></div>
 
-  <div class="split-layout split-layout--register">
+  <div class="auth-page" style="position:relative;z-index:2;">
 
-    <!-- Left panel: brand -->
-    <div class="brand-panel">
-      <div class="brand-panel__inner">
-        <div class="brand-logo">VAULT</div>
-        <div class="brand-tagline">
-          <span>New here.</span>
-          <span>Welcome.</span>
-          <span>Let's begin.</span>
+    <!-- Left: Visual / Brand -->
+    <div class="auth-visual">
+      <div class="auth-visual__orb auth-visual__orb--1"></div>
+      <div class="auth-visual__orb auth-visual__orb--2"></div>
+      <div class="auth-visual__ring auth-visual__ring--1"></div>
+      <div class="auth-visual__ring auth-visual__ring--2"></div>
+      <div class="auth-visual__ring auth-visual__ring--3"></div>
+      <div class="auth-visual__center"></div>
+
+      <div class="auth-visual__content">
+        <div class="auth-visual__logo">COSMOS<span>.</span></div>
+        <div class="auth-visual__tagline">Stellar Observatory System</div>
+        <div class="auth-visual__divider">
+          <span></span>
+          <div class="auth-visual__tagline2">discover · observe · catalog</div>
+          <span></span>
         </div>
-        <div class="brand-issue">ISSUE №002 — CREATION</div>
       </div>
-      <div class="brand-grid-lines" aria-hidden="true">
-        <div class="gl gl--1"></div>
-        <div class="gl gl--2"></div>
-        <div class="gl gl--3"></div>
-      </div>
-      <div class="brand-watermark" aria-hidden="true">JOIN<br>US</div>
     </div>
 
-    <!-- Right panel: form -->
-    <div class="form-panel">
-      <div class="form-panel__inner">
+    <!-- Right: Registration Form -->
+    <div class="auth-form-side">
+      <div class="auth-form-inner">
 
-        <div class="form-eyebrow">
-          <span class="dot dot--amber"></span> NEW ACCOUNT
-        </div>
+        <div class="auth-eyebrow">New Observer</div>
+        <h1 class="auth-heading">Join the<br>Network.</h1>
+        <p class="auth-subheading">Create your account to start cataloging the universe.</p>
 
-        <h1 class="form-heading">Create<br><em>Account.</em></h1>
+        <form class="auth-form" action="register_process.php" method="POST">
 
-        <form action="register_process.php" method="POST" class="auth-form" novalidate>
-
-          <div class="field-group">
-            <label for="username" class="field-label">Username</label>
-            <input id="username" type="text" name="username" placeholder="whats your name?" autocomplete="username" required>
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="username">// Username</label>
+              <input
+                class="field-input"
+                type="text"
+                id="username"
+                name="username"
+                placeholder="stargazer_01"
+                autocomplete="username"
+                required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="fullname">// Full Name</label>
+              <input
+                class="field-input"
+                type="text"
+                id="fullname"
+                name="full_name"
+                placeholder="Your Name">
+            </div>
           </div>
 
           <div class="field-group">
-            <label for="password" class="field-label">Password</label>
-            <input id="password" type="password" name="password" placeholder="make it strong" autocomplete="new-password" required>
+            <label class="field-label" for="email">// Email Address</label>
+            <input
+              class="field-input"
+              type="email"
+              id="email"
+              name="email"
+              placeholder="observer@cosmos.local"
+              autocomplete="email"
+              required>
           </div>
 
-          <button type="submit" class="btn-primary btn-primary--amber">
-            <span>Create Account</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" width="18" height="18"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <div class="field-row">
+            <div class="field-group">
+              <label class="field-label" for="password">// Password</label>
+              <input
+                class="field-input"
+                type="password"
+                id="password"
+                name="password"
+                placeholder="••••••••••••"
+                required>
+            </div>
+            <div class="field-group">
+              <label class="field-label" for="password_confirm">// Confirm</label>
+              <input
+                class="field-input"
+                type="password"
+                id="password_confirm"
+                name="password_confirm"
+                placeholder="••••••••••••"
+                required>
+            </div>
+          </div>
+
+          <div class="field-group">
+            <label class="field-label" for="role">// Observer Level</label>
+            <select class="field-select" id="role" name="role">
+              <option value="observer">Observer — Beginner</option>
+              <option value="astronomer">Astronomer — Advanced</option>
+              <option value="admin">Administrator</option>
+            </select>
+          </div>
+
+          <button type="submit" class="auth-submit">
+            Create Account &amp; Join Network
           </button>
 
         </form>
 
-        <p class="switch-link">Already a member? <a href="login.html">Sign in →</a></p>
+        <p class="auth-footer-link">
+          Already registered? <a href="login.html">Sign in &rarr;</a>
+        </p>
 
-        <div class="form-rule"></div>
-        <div class="form-footer">Your password is stored hashed · We never share your data.</div>
       </div>
     </div>
 
   </div>
 
+  <script src="js/starfield.js"></script>
 </body>
 </html>
