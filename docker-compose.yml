@@ -4,7 +4,7 @@ services:
     depends_on:
       - mysql
     ports:
-      - 80:80
+      - "80:80"
     volumes:
       - ./src:/var/www/html/
       - ./php.ini:/usr/local/etc/php/php.ini
@@ -13,25 +13,22 @@ services:
     image: mariadb:latest
     environment:
       MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "scooterparts"
       MYSQL_USER: "student"
       MYSQL_PASSWORD: "veiligwachtwoord"
     volumes:
       - ./init.sql:/docker-entrypoint-initdb.d/init.sql
-      - ./init_planten.sql:/docker-entrypoint-initdb.d/init_planten.sql
-      - certs:/ssl
-      - mysqlconf:/etc/mysql/conf.d/
-      - ./planten_met_afbeeldingen.csv:/var/lib/mysql-files/planten.csv
+      - ./init_users.sql:/docker-entrypoint-initdb.d/init_users.sql
+      - mysqldata:/var/lib/mysql
     ports:
-      - 3306:3306
+      - "3306:3306"
 
   phpmyadmin:
     image: phpmyadmin
     ports:
-      - 8080:80
+      - "8080:80"
     environment:
       PMA_HOST: mysql
 
 volumes:
   mysqldata:
-  certs:
-  mysqlconf:
